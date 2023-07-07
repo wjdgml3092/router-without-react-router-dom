@@ -1,13 +1,13 @@
 # router-without-react-router-dom
 react-router-dom 라이브러리 사용 X, History API 사용으로 라우터 구현하기
-
+<br />
 ## Tech Stack
 <p>
   <img src="https://img.shields.io/badge/TypeScript-5587ED?style=flat-square&logo=TypeScript&logoColor=white"/> 
   <img src="https://img.shields.io/badge/React-61DAFB?style=flat-squar&logo=react&logoColor=black"> 
 </p>
 
-<br /><br />
+<br />
 ## 요구사항
 
 **1) 해당 주소로 진입했을 때 아래 주소에 맞는 페이지가 렌더링 되어야 한다.**
