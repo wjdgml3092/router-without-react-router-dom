@@ -1,13 +1,45 @@
 # router-without-react-router-dom
 react-router-dom 라이브러리 사용 X, History API 사용으로 라우터 구현하기
 
-### Tech Stack
+## Tech Stack
 <p>
   <img src="https://img.shields.io/badge/TypeScript-5587ED?style=flat-square&logo=TypeScript&logoColor=white"/> 
   <img src="https://img.shields.io/badge/React-61DAFB?style=flat-squar&logo=react&logoColor=black"> 
 </p>
 
-### Directory
+<br /><br />
+## 요구사항
+
+**1) 해당 주소로 진입했을 때 아래 주소에 맞는 페이지가 렌더링 되어야 한다.**
+
+- `/` → `root` 페이지
+- `/about` → `about` 페이지
+
+**2) 버튼을 클릭하면 해당 페이지로, 뒤로 가기 버튼을 눌렀을 때 이전 페이지로 이동해야 한다.**
+
+- 힌트) `window.onpopstate`, `window.location.pathname` History API(`pushState`)
+
+**3) Router, Route 컴포넌트를 구현해야 하며, 형태는 아래와 같아야 한다.**
+
+```tsx
+ReactDOM.createRoot(container).render(
+  <Router>
+    <Route path='/' component={<Root />} />
+    <Route path='/about' component={<About />} />
+  </Router>
+);
+```
+
+**4) 최소한의 push 기능을 가진 useRouter Hook을 작성한다.**
+
+```tsx
+const { push } = useRouter();
+```
+
+<br />
+
+## Directory
+
 ```
 📦src
  ┣ 📂hooks
@@ -26,10 +58,19 @@ react-router-dom 라이브러리 사용 X, History API 사용으로 라우터 �
  ┣ 📜main.tsx
 
 ```
+<br />
 
-### Code
+## 실행
 
-useRouter.tsx
+```
+npm install
+npm run dev
+```
+<br />
+
+## Code
+
+**useRouter.tsx**
 ```
 const useRouter = () => { //about, root 페이지에서 호출
   const push = (path: string) => { //각 페이지 버튼 클릭 시 해당 메소드 호출
@@ -46,8 +87,9 @@ const useRouter = () => { //about, root 페이지에서 호출
 
 export default useRouter
 ```
+<br />
 
-usePath.tsx
+**usePath.tsx**
 ```
 import { useEffect, useState } from 'react'
 
@@ -75,7 +117,11 @@ export default usePath
 
 라우터 관련 훅은 위에 2개다.
 
-Router.tsx
+
+<br />
+
+**Router.tsx**
+
 ```
 export const Router = ({ children }: RouterProps) => {
   const currentPath = usePath() //현재 경로로 state 초기화하고, 이벤트등록하는 hooks
