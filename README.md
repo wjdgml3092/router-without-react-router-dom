@@ -83,7 +83,7 @@ export const Router = ({ children }: RouterProps) => {
   return (
     <>
       {children?.map((router: React.ReactElement<RouteProps>) => {
-        //props로 전달받은 chidren을 map 돌리면서 props.path와 현재 경로가 동일하다면 router 즉, <Route ~/> 반환
+        //props로 전달받은 chidren을 map 돌리면서 props.path와 현재 경로가 동일하다면 router 즉, <Route ~/> 컴포넌트 반환
         if (router.props.path == currentPath) return router
       })}
     </>
