@@ -1,9 +1,6 @@
-import { RouteProps } from '../shared/interface'
+import { RouteProps, RouterProps } from '../shared/interface'
 import usePath from './hooks/usePath'
 
-interface RouterProps {
-  children: React.ReactElement<RouteProps>[]
-}
 export const Router = ({ children }: RouterProps) => {
   const currentPath = usePath()
   return (
